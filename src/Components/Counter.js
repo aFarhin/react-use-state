@@ -11,6 +11,9 @@ const Counter = () => {
     function decreaseCount() {
         setCount(count - 1);
         console.log(count)
+        if(count<=0){
+            setCount(count)
+        }
     }
 
     function resCount() {

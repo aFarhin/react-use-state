@@ -7,6 +7,8 @@ import React, { useState } from "react";
 const App = () => {
 
   let [text, setText] = useState("")
+  let [mod, setMod] = useState("")
+
 
   return (
     <div className="app">
@@ -15,8 +17,11 @@ const App = () => {
       <Form />
       <br />
       <div>
-        <Form1 updateText={setText} />
-        <p>{text}</p>
+        <Form1 updateText={setText} updateMod={setMod} texts={text}/>
+           
+        { text &&<p> <span>{text}</span></p>
+           }
+        { mod && <p> Sum of Ascii Values: <span>{mod}</span></p>}
       </div>
       <div>
         <Counter1 />
