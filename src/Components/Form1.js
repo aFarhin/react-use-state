@@ -1,15 +1,27 @@
 
-const Form1 =({updateText})=>{
+const Form1 = ({ updateText }) => {
 
-    function changeText(e){
-        updateText(e.target.value);
+    function changeText(e) {
+
+        updateText(getAsciiValues(e.target.value));
+
+        function getAsciiValues(text) {
+            var asciiValues = "";
+            for (var i = 0; i < text.length; i++) {
+                asciiValues += text.charCodeAt(i) + ",  ";
+            }
+            return asciiValues.trim();
+        }
+
     }
 
-    return(
+    return (
         <div className="form1">
             <form>
-                <input type="text" placeholder="Change text to lowercase" onChange={changeText} />
-                <button>See live</button>
+                <label>Change your input into its Ascii Value</label>
+                <br />
+                <br />
+                <input type="text" placeholder=" Write here to see live" onChange={changeText} />
             </form>
         </div>
     )
